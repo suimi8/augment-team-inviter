@@ -35,7 +35,7 @@ export default function TestAPI() {
         响应: ${JSON.stringify(result, null, 2)}
       `);
     } catch (error) {
-      setUpdateResult(`错误: ${error.message}`);
+      setUpdateResult(`错误: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
       setLoading(false);
     }
@@ -58,7 +58,7 @@ export default function TestAPI() {
         setCurrentCookie(result.cookie);
       }
     } catch (error) {
-      setGetResult(`错误: ${error.message}`);
+      setGetResult(`错误: ${error instanceof Error ? error.message : String(error)}`);
     } finally {
       setLoading(false);
     }
